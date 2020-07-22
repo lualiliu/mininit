@@ -1,4 +1,5 @@
 mininit-initramfs
 mininit-syspart
 splashkill
+tags
 *.o
