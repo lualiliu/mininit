@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
 # CFLAGS can be overridden, CFLAGS_NOCUST should be left untouched.
 CFLAGS ?= -O2 -fomit-frame-pointer
 CFLAGS_NOCUST = -std=c99 -Wall -Wextra -Wundef -Wold-style-definition

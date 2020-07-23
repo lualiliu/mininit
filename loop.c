@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: BSD-2-Clause */
+
 #include <fcntl.h>
 #include <linux/loop.h>
 #include <stdint.h>
