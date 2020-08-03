@@ -55,11 +55,10 @@ static int multi_mount(
 
 const char *mount_boot(void)
 {
-	/* Create boot and root mount points.
+	/* Create boot mount.
 	 * Failure is most likely fatal, but perhaps mkdir on a usable mount point
 	 * could return something other than EEXIST when trying to recreate it. */
 	create_mount_point(boot_mount);
-	create_mount_point("/root");
 
 	/* Process "boot" parameter (comma-separated list).
 	 * Note that we specify 20 retries (2 seconds), just in case it is

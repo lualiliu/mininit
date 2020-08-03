@@ -100,6 +100,10 @@ int main(int argc, char **argv, char **envp)
 {
 	logfile = stderr;
 
+	/* Create required mount points. */
+	create_mount_point("/dev");
+	create_mount_point("/root");
+
 	/* Mount devtmpfs to get a full set of device nodes. */
 	if (mount("devtmpfs", "/dev", "devtmpfs", 0, NULL) && errno != EBUSY) {
 		INFO("Couldn't mount devtmpfs on /dev: %d\n", errno);
