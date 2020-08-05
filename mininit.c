@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: BSD-2-Clause */
+
 #define _DEFAULT_SOURCE
 #define _GNU_SOURCE
 
