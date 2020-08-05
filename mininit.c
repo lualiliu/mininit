@@ -98,7 +98,12 @@ char logbuf[LOG_BUF_SIZE];
 
 int main(int argc, char **argv, char **envp)
 {
+	struct stat stats;
 	logfile = stderr;
+
+	/* Create required mount points. */
+	create_mount_point("/dev");
+	create_mount_point("/root");
 
 	/* Mount devtmpfs to get a full set of device nodes. */
 	if (mount("devtmpfs", "/dev", "devtmpfs", 0, NULL) && errno != EBUSY) {
@@ -165,6 +170,17 @@ int main(int argc, char **argv, char **envp)
 		return -1;
 	}
 	INFO("%s mounted on /root\n", rootfs_img);
+
+	/* Check for /boot in the rootfs image */
+	if (stat("/root/boot", &stats)) {
+		ERROR("'boot' folder in the rootfs image is missing: %d\n", errno);
+		return -1;
+	}
+
+	if (!S_ISDIR(stats.st_mode)) {
+		ERROR("'boot' folder in the rootfs image is missing\n");
+		return -1;
+	}
 
 	/* Make the freshly mounted rootfs image the working directory. */
 	if (chdir("/root")) {
