@@ -26,7 +26,7 @@
 
 
 #define ROOTFS_TYPE    "squashfs"
-#define ROOTFS_CURRENT "rootfs." ROOTFS_TYPE
+#define ROOTFS_CURRENT "batocera"
 #define ROOTFS_BACKUP  ROOTFS_CURRENT ".bak"
 #define ROOTFS_UPDATE  "update_r.bin"
 
@@ -122,7 +122,7 @@ int main(int argc, char **argv, char **envp)
 #endif /* __KLIBC__ */
 		logfile = kmsg;
 	}
-	INFO("OpenDingux mininit 2.0.2\n");
+	INFO("Batocera.linux mininit 2.0.2\n");
 	if (!kmsg) {
 		WARNING("Failed to open '/dev/kmsg': %d\n", errno);
 	}
